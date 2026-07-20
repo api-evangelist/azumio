@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://dev.caloriemama.ai/docs
+docs: https://dev.caloriemama.ai/docs
+summary:
+  types: [apiKey]
+  api_key_in: [query]
+  oauth2_flows: []
+schemes:
+  - name: user_key
+    type: apiKey
+    in: query
+    parameter: user_key
+    description: >-
+      3scale application API key passed as the query parameter user_key on every
+      request. Keys are issued from the Calorie Mama developer portal after
+      sign-up and are tied to a usage plan.
+    sources: [openapi/azumio-food-recognition-openapi.yml]
+notes:
+  - The API is fronted by a 3scale (APIcast) gateway; auth is application-key
+    only. No OAuth, no bearer tokens, no scopes are documented.
+  - Sign up for a key at https://dev.caloriemama.ai/signup ; manage at
+    https://dev.caloriemama.ai/login
