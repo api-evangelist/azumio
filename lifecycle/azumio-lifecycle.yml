@@ -1,0 +1,19 @@
+generated: '2026-07-18'
+method: searched
+source: https://dev.caloriemama.ai/docs
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://dev.caloriemama.ai/docs
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation or Sunset-header policy found.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+deprecated_operations: []
+note: >-
+  No status page, SLA document, or deprecation policy is published for the
+  Calorie Mama / Azumio API. Only the URI-path version (v1) is documented.

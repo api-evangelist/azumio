@@ -1,0 +1,14 @@
+{
+  "provider": "azumio",
+  "sources": [
+    "azumio-food-recognition-api-openapi.yml"
+  ],
+  "outputs": [
+    "azumio-food-recognition-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

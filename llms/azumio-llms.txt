@@ -1,0 +1,32 @@
+# Azumio
+
+> Azumio builds AI-driven digital health technology used by 100M+ people, and
+> exposes it to developers through the Calorie Mama Food AI recognition API and
+> related health/nutrition APIs and SDKs. The flagship developer product is the
+> Calorie Mama Food Recognition API: submit a food photo, get back recognized
+> foods with calories, macronutrients, and full nutrition.
+
+## APIs
+
+- [Calorie Mama Food Recognition API](https://dev.caloriemama.ai/docs): POST a JPEG image to /v1/foodrecognition (macros) or /v1/foodrecognition/full (full nutrition); API-key auth via user_key.
+
+## Specs
+
+- [OpenAPI (generated from docs)](https://raw.githubusercontent.com/api-evangelist/azumio/refs/heads/main/openapi/azumio-food-recognition-openapi.yml)
+
+## Docs
+
+- [Developer portal](https://dev.caloriemama.ai)
+- [API documentation](https://dev.caloriemama.ai/docs)
+- [Sign up](https://dev.caloriemama.ai/signup)
+- [Login](https://dev.caloriemama.ai/login)
+- [Azumio developer / API overview](https://azumio.com)
+- [Blog](https://azumio.com/blog)
+- [Privacy policy and terms of use](https://azumio.com/privacy-policy-and-terms-of-use)
+
+## Artifacts
+
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/azumio/refs/heads/main/authentication/azumio-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/azumio/refs/heads/main/conventions/azumio-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/azumio/refs/heads/main/errors/azumio-problem-types.yml)
+- [Agent skill: recognize food](https://raw.githubusercontent.com/api-evangelist/azumio/refs/heads/main/skills/azumio-recognize-food.md)

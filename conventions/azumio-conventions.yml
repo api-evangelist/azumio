@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: searched
+source: https://dev.caloriemama.ai/docs
+authentication:
+  style: api-key
+  location: query
+  parameter: user_key
+  see: authentication/azumio-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    No idempotency-key header or parameter is documented. Requests are image
+    classifications and carry no server-side write side effects.
+pagination:
+  supported: false
+  note: Recognition responses return a bounded ranked list of candidates; no pagination.
+versioning:
+  scheme: uri-path
+  current: v1
+  example: /v1/foodrecognition
+request:
+  content_types:
+    - multipart/form-data
+    - image/jpeg
+  image_requirements:
+    format: JPEG
+    recommended_size: 544x544
+error_envelope:
+  shape: '{ "error": { "errorDetail": string, "code": integer } }'
+  format: custom-json
+  not_rfc9457: true
+  see: errors/azumio-problem-types.yml
+rate_limit_signal:
+  documented: false
+  note: >-
+    Usage is enforced per plan by the 3scale gateway; HTTP 409 (usage limit
+    exceeded) and 429 (too many requests) signal limits, but no rate-limit
+    response headers are documented.
+  see: lifecycle/azumio-lifecycle.yml

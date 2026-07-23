@@ -1,0 +1,7 @@
+generated: '2026-07-18'
+method: generated
+skills:
+  - file: azumio-recognize-food.md
+    name: Recognize food in a photo with Calorie Mama
+    api: openapi/azumio-food-recognition-openapi.yml
+    operations: [recognizeFood, recognizeFoodFull]

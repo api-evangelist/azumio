@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of /.well-known/ on azumio.com and dev.caloriemama.ai
+hosts:
+  - host: https://azumio.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: https://dev.caloriemama.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 404
+note: >-
+  No /.well-known discovery documents, ai-plugin manifest, or llms.txt are
+  published on the marketing or developer host. Absence recorded as valid data.

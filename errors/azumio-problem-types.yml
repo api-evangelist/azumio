@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://dev.caloriemama.ai/docs
+format: custom-json
+envelope: '{ "error": { "errorDetail": string, "code": integer } }'
+note: >-
+  Errors are returned as a custom JSON envelope, not RFC 9457 problem+json. The
+  code field mirrors the HTTP status. Derived from the Calorie Mama Food
+  Recognition API error reference.
+problems:
+  - status: 400
+    title: Bad request
+    remediation: Check the request format, content type, and that a valid JPEG image was supplied.
+  - status: 401
+    title: Authorization failure
+    remediation: Supply a valid user_key query parameter.
+  - status: 404
+    title: Not found
+    remediation: Verify the endpoint path (/v1/foodrecognition or /v1/foodrecognition/full).
+  - status: 409
+    title: Usage limit exceeded
+    remediation: The plan quota for the billing period is exhausted; upgrade the plan or wait for reset.
+  - status: 429
+    title: Too many requests
+    remediation: Slow the request rate; the gateway is throttling.
+  - status: 500
+    title: Server error
+    remediation: Transient server-side error; retry with backoff and contact support@azumio.com if persistent.

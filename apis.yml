@@ -1,8 +1,30 @@
 aid: azumio
 name: Azumio
-description: Azumio is a company surfaced as a portfolio company of felicis and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Azumio is an AI-driven digital health company whose consumer apps (Argus,
+  Instant Heart Rate, Fitness Buddy, Glucose Buddy, Sleep Time, Calorie Mama)
+  have been downloaded more than 100 million times. Beyond its apps, Azumio
+  offers developer APIs and SDKs built on its deep-learning and digital-biomarker
+  technology: the Calorie Mama Food Recognition API (identify food from a photo
+  and return calories, macronutrients, and full nutrition), the Azumio 360
+  tracking API/SDK for diet, fitness and sleep, and diabetes-focused APIs
+  including an AI Instant Diabetes Test biomarker and blood-glucose management.
+  The flagship, publicly documented developer product is the Calorie Mama Food
+  Recognition API, a 3scale-gateway REST API using API-key authentication.
 url: https://raw.githubusercontent.com/api-evangelist/azumio/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://azumio.com/favicon.ico
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,15 +33,81 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Health
+- Digital Health
+- Nutrition
+- Food Recognition
+- Machine Learning
+- Artificial Intelligence
+- Fitness
+- Diabetes
+- API
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: azumio:azumio-food-recognition-api
+  name: Azumio Food Recognition API
+  description: The Food Recognition API from Azumio — 2 operation(s) for food recognition.
+  humanURL: https://dev.caloriemama.ai/docs
+  baseURL: https://api-2445582032290.production.gw.apicast.io
+  tags:
+  - Food Recognition
+  properties:
+  - type: OpenAPI
+    url: openapi/azumio-food-recognition-api-openapi.yml
+  - type: Documentation
+    url: https://dev.caloriemama.ai/docs
 common:
 - type: Website
   url: https://azumio.com
+- type: DeveloperPortal
+  url: https://dev.caloriemama.ai
+- type: Documentation
+  url: https://dev.caloriemama.ai/docs
+- type: APIReference
+  url: https://dev.caloriemama.ai/docs
+- type: SignUp
+  url: https://dev.caloriemama.ai/signup
+- type: Login
+  url: https://dev.caloriemama.ai/login
+- type: Blog
+  url: https://azumio.com/blog
+- type: Support
+  url: mailto:support@azumio.com
+- type: TermsOfService
+  url: https://azumio.com/privacy-policy-and-terms-of-use
+- type: PrivacyPolicy
+  url: https://azumio.com/privacy-policy-and-terms-of-use
+- type: Authentication
+  url: authentication/azumio-authentication.yml
+- type: Conventions
+  url: conventions/azumio-conventions.yml
+- type: ErrorCatalog
+  url: errors/azumio-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/azumio-lifecycle.yml
+- type: Conformance
+  url: conformance/azumio-conformance.yml
+- type: DataModel
+  url: data-model/azumio-data-model.yml
+- type: MCPServer
+  url: mcp/azumio-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/azumio-llms.txt
+- type: WellKnown
+  url: well-known/azumio-well-known.yml
+- type: DomainSecurity
+  url: security/azumio-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

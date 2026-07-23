@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/azumio-food-recognition-openapi.yml
+note: >-
+  No official hosted/remote MCP server is published by Azumio. This is a
+  candidate tool list derived one-per-operation from the documented Calorie Mama
+  Food Recognition API, for a future MCP wrapper.
+server:
+  name: azumio-food-recognition
+  transport: http
+tools:
+  - name: recognize_food
+    description: Recognize food in a JPEG image and return calories and macronutrients.
+    source_operation: openapi/azumio-food-recognition-openapi.yml#recognizeFood
+  - name: recognize_food_full
+    description: Recognize food in a JPEG image and return the full nutrition profile.
+    source_operation: openapi/azumio-food-recognition-openapi.yml#recognizeFoodFull

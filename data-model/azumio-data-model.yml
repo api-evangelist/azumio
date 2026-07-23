@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/azumio-food-recognition-openapi.yml
+entities:
+  - name: RecognitionResult
+    description: Top-level response for a food image classification.
+    id_prefix: null
+  - name: FoodGroup
+    description: A recognized food group within a result.
+  - name: FoodItem
+    description: A candidate recognized food, with score, brand and nutrition.
+  - name: Nutrition
+    description: Macronutrient (or full) nutrition values for a food item.
+relationships:
+  - from: RecognitionResult
+    to: FoodGroup
+    type: has_many
+    via: results
+  - from: FoodGroup
+    to: FoodItem
+    type: has_many
+    via: items
+  - from: FoodItem
+    to: Nutrition
+    type: has_one
+    via: nutrition

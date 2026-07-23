@@ -1,0 +1,187 @@
+openapi: 3.0.3
+info:
+  title: Calorie Mama Food Recognition API
+  description: Deep-learning food image recognition API by Azumio. Submit a food photo and receive recognized food items with nutrition data (calories and macronutrients, or full nutrition). Part of the Azumio Food AI product line.
+  version: v1
+  contact:
+    name: Azumio API Support
+    email: support@azumio.com
+    url: https://dev.caloriemama.ai
+  termsOfService: https://azumio.com/privacy-policy-and-terms-of-use
+servers:
+- url: https://api-2445582032290.production.gw.apicast.io
+  description: Production gateway (3scale APIcast)
+security:
+- user_key: []
+tags:
+- name: Food Recognition
+paths:
+  /v1/foodrecognition:
+    post:
+      operationId: recognizeFood
+      summary: Recognize food and return macronutrients
+      description: Submit a JPEG food image and receive recognized food groups and items with core macronutrient data (calories, totalFat, totalCarbs, protein).
+      tags:
+      - Food Recognition
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                media:
+                  type: string
+                  format: binary
+                  description: JPEG image file (recommended 544x544).
+              required:
+              - media
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Recognition results with macronutrients.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecognitionResult'
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '409':
+          $ref: '#/components/responses/Error'
+        '429':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+  /v1/foodrecognition/full:
+    post:
+      operationId: recognizeFoodFull
+      summary: Recognize food and return full nutrition
+      description: Submit a JPEG food image and receive recognized food groups and items with the full nutrition profile (17 fields including vitamins, minerals, and fat types).
+      tags:
+      - Food Recognition
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                media:
+                  type: string
+                  format: binary
+                  description: JPEG image file (recommended 544x544).
+              required:
+              - media
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Recognition results with full nutrition.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecognitionResult'
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '409':
+          $ref: '#/components/responses/Error'
+        '429':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+components:
+  schemas:
+    Nutrition:
+      type: object
+      description: Core macronutrients on /v1/foodrecognition; expanded to the full profile (vitamins, minerals, fat types) on /v1/foodrecognition/full.
+      properties:
+        calories:
+          type: number
+        totalFat:
+          type: number
+        totalCarbs:
+          type: number
+        protein:
+          type: number
+        sodium:
+          type: number
+    FoodGroup:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Food group name (e.g. "Bacon", "Confection").
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FoodItem'
+    FoodItem:
+      type: object
+      properties:
+        name:
+          type: string
+        score:
+          type: number
+          format: float
+          description: Confidence score for this candidate.
+        brand:
+          type: string
+          description: Brand name when the item is a packaged product.
+        servingSizes:
+          type: array
+          items:
+            type: object
+        nutrition:
+          $ref: '#/components/schemas/Nutrition'
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            errorDetail:
+              type: string
+            code:
+              type: integer
+      example:
+        error:
+          errorDetail: Authorization failure
+          code: 401
+    RecognitionResult:
+      type: object
+      description: 'Hierarchical recognition result: a model version identifier plus an array of recognized food groups, each containing candidate food items.'
+      properties:
+        model_version:
+          type: string
+          description: Identifier of the recognition model that produced the result.
+        results:
+          type: array
+          description: Recognized food groups.
+          items:
+            $ref: '#/components/schemas/FoodGroup'
+  responses:
+    Error:
+      description: Error envelope returned by the API.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    user_key:
+      type: apiKey
+      in: query
+      name: user_key
+      description: 3scale application API key issued from the developer portal.
