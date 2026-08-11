@@ -64,6 +64,8 @@ apis:
   - type: Documentation
     url: https://dev.caloriemama.ai/docs
 common:
+- type: Overlay
+  url: overlays/azumio-food-recognition-overlay.yaml
 - type: Website
   url: https://azumio.com
 - type: DeveloperPortal
