@@ -1,0 +1,906 @@
+{
+  "item": [
+    {
+      "id": "db5c8eac-6af5-403d-ac0f-973ede4d9d30",
+      "name": "Food Recognition",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20b92501-aacc-44c1-a00b-d340598dff23",
+          "name": "Recognize food and return macronutrients",
+          "request": {
+            "name": "Recognize food and return macronutrients",
+            "description": {
+              "content": "Submit a JPEG food image and receive recognized food groups and items with core macronutrient data (calories, totalFat, totalCarbs, protein).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "foodrecognition"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "media",
+                  "type": "file",
+                  "description": "(Required) JPEG image file (recommended 544x544)."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "02c1505c-ee1a-4fe4-ae76-2b17c165c79a",
+              "name": "Recognition results with macronutrients.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"model_version\": \"string\",\n  \"results\": [\n    {\n      \"group\": \"string\",\n      \"items\": [\n        {\n          \"name\": \"string\",\n          \"score\": 551.8605389558884,\n          \"brand\": \"string\",\n          \"nutrition\": {\n            \"calories\": 6159.374386703058,\n            \"totalFat\": 2030.4692365100595,\n            \"totalCarbs\": 2884.6368415657807,\n            \"protein\": 9930.168228246328,\n            \"sodium\": 6789.6554391336\n          }\n        },\n        {\n          \"name\": \"string\",\n          \"score\": 988.5200327872767,\n          \"brand\": \"string\",\n          \"nutrition\": {\n            \"calories\": 9223.783762229925,\n            \"totalFat\": 3490.427057648441,\n            \"totalCarbs\": 2388.0490048553925,\n            \"protein\": 619.3278317472962,\n            \"sodium\": 6857.158108545435\n          }\n        }\n      ]\n    },\n    {\n      \"group\": \"string\",\n      \"items\": [\n        {\n          \"name\": \"string\",\n          \"score\": 6661.037539420142,\n          \"brand\": \"string\",\n          \"nutrition\": {\n            \"calories\": 5273.012619786738,\n            \"totalFat\": 8364.385532254113,\n            \"totalCarbs\": 6604.6618754856245,\n            \"protein\": 4620.928662163396,\n            \"sodium\": 8764.24382375921\n          }\n        },\n        {\n          \"name\": \"string\",\n          \"score\": 4734.394335105861,\n          \"brand\": \"string\",\n          \"nutrition\": {\n            \"calories\": 411.4318948592033,\n            \"totalFat\": 3271.740131193828,\n            \"totalCarbs\": 6664.683257423792,\n            \"protein\": 4155.464331393776,\n            \"sodium\": 5560.932487373597\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0512c23-edb0-4513-aa2b-0ac79fc7dd99",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f512ae8a-3d62-468d-89d3-d732ec7fbe3b",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "751442f3-ed05-48f9-8945-64754ef0fce0",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b284be2-63e9-499a-8abb-62b011623386",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "419711d2-582d-4e72-ae14-a07afa7b976f",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "168c2896-e7fb-4a76-a7bd-2f5df5229779",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9899225c-c95c-4581-a34a-f2d96f7252d4",
+          "name": "Recognize food and return full nutrition",
+          "request": {
+            "name": "Recognize food and return full nutrition",
+            "description": {
+              "content": "Submit a JPEG food image and receive recognized food groups and items with the full nutrition profile (17 fields including vitamins, minerals, and fat types).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "foodrecognition",
+                "full"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "media",
+                  "type": "file",
+                  "description": "(Required) JPEG image file (recommended 544x544)."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6ba3a2f4-a6e8-48dd-a2ab-0daa2d8abeae",
+              "name": "Recognition results with full nutrition.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"model_version\": \"string\",\n  \"results\": [\n    {\n      \"group\": \"string\",\n      \"items\": [\n        {\n          \"name\": \"string\",\n          \"score\": 1098.2025212895785,\n          \"brand\": \"string\",\n          \"nutrition\": {\n            \"calories\": 800.7548705778089,\n            \"totalFat\": 2998.343715876628,\n            \"totalCarbs\": 9232.041167812155,\n            \"protein\": 3721.1594502767152,\n            \"sodium\": 4847.24341979107\n          }\n        },\n        {\n          \"name\": \"string\",\n          \"score\": 4587.134540206726,\n          \"brand\": \"string\",\n          \"nutrition\": {\n            \"calories\": 3999.3525911890624,\n            \"totalFat\": 2790.751672073427,\n            \"totalCarbs\": 3574.2118055053897,\n            \"protein\": 791.3507338945302,\n            \"sodium\": 451.06950933571534\n          }\n        }\n      ]\n    },\n    {\n      \"group\": \"string\",\n      \"items\": [\n        {\n          \"name\": \"string\",\n          \"score\": 9784.642560136339,\n          \"brand\": \"string\",\n          \"nutrition\": {\n            \"calories\": 2725.6631741010897,\n            \"totalFat\": 7940.326569841423,\n            \"totalCarbs\": 5965.867501938162,\n            \"protein\": 2057.893846785811,\n            \"sodium\": 1931.9603960808429\n          }\n        },\n        {\n          \"name\": \"string\",\n          \"score\": 5149.844284743536,\n          \"brand\": \"string\",\n          \"nutrition\": {\n            \"calories\": 7721.448869929987,\n            \"totalFat\": 7010.531060139965,\n            \"totalCarbs\": 4588.90303320032,\n            \"protein\": 4629.776034215093,\n            \"sodium\": 4583.146218079974\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52339d74-84c9-44ed-999e-8f6d308a9978",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "008813be-5093-4169-8b82-61d87c5dba15",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6968fbb3-2b3c-40bf-95c8-c6e5d0cdf08b",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57a74ef1-d2fe-4f0b-ab2c-8ce9ad2b964b",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f64dc4de-ab83-4ddb-8304-fd1a8a7fea1e",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "204ddf34-d0bc-4e99-baaf-ed1a34fcd0e7",
+              "name": "Error envelope returned by the API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "foodrecognition",
+                    "full"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) JPEG image file (recommended 544x544).",
+                        "type": "text/plain"
+                      },
+                      "key": "media",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"errorDetail\": \"Authorization failure\",\n    \"code\": 401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-2445582032290.production.gw.apicast.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "user_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6db7da17-bedf-40ca-9188-f2e46e3277cb",
+    "name": "Calorie Mama Food Recognition API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Deep-learning food image recognition API by Azumio. Submit a food photo and receive recognized food items with nutrition data (calories and macronutrients, or full nutrition). Part of the Azumio Food AI product line.\n\nContact Support:\n Name: Azumio API Support\n Email: support@azumio.com",
+      "type": "text/plain"
+    }
+  }
+}

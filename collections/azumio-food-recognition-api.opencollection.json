@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Calorie Mama Food Recognition API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "user_key",
+      "value": "{{user_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Food Recognition",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Recognize food and return macronutrients",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-2445582032290.production.gw.apicast.io/v1/foodrecognition",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "media",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Submit a JPEG food image and receive recognized food groups and items with core macronutrient data (calories, totalFat, totalCarbs, protein)."
+        },
+        {
+          "info": {
+            "name": "Recognize food and return full nutrition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-2445582032290.production.gw.apicast.io/v1/foodrecognition/full",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "media",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Submit a JPEG food image and receive recognized food groups and items with the full nutrition profile (17 fields including vitamins, minerals, and fat types)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
