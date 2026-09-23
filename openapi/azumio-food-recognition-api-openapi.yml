@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Calorie Mama Food Recognition API
   description: Deep-learning food image recognition API by Azumio. Submit a food photo and receive recognized food items with nutrition data (calories and macronutrients, or full nutrition). Part of the Azumio Food AI product line.
@@ -103,7 +103,26 @@ paths:
         '500':
           $ref: '#/components/responses/Error'
 components:
+  responses:
+    Error:
+      description: Error envelope returned by the API.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    RecognitionResult:
+      type: object
+      description: 'Hierarchical recognition result: a model version identifier plus an array of recognized food groups, each containing candidate food items.'
+      properties:
+        model_version:
+          type: string
+          description: Identifier of the recognition model that produced the result.
+        results:
+          type: array
+          description: Recognized food groups.
+          items:
+            $ref: '#/components/schemas/FoodGroup'
     Nutrition:
       type: object
       description: Core macronutrients on /v1/foodrecognition; expanded to the full profile (vitamins, minerals, fat types) on /v1/foodrecognition/full.
@@ -118,16 +137,20 @@ components:
           type: number
         sodium:
           type: number
-    FoodGroup:
+    Error:
       type: object
       properties:
-        group:
-          type: string
-          description: Food group name (e.g. "Bacon", "Confection").
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/FoodItem'
+        error:
+          type: object
+          properties:
+            errorDetail:
+              type: string
+            code:
+              type: integer
+      example:
+        error:
+          errorDetail: Authorization failure
+          code: 401
     FoodItem:
       type: object
       properties:
@@ -146,39 +169,16 @@ components:
             type: object
         nutrition:
           $ref: '#/components/schemas/Nutrition'
-    Error:
+    FoodGroup:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            errorDetail:
-              type: string
-            code:
-              type: integer
-      example:
-        error:
-          errorDetail: Authorization failure
-          code: 401
-    RecognitionResult:
-      type: object
-      description: 'Hierarchical recognition result: a model version identifier plus an array of recognized food groups, each containing candidate food items.'
-      properties:
-        model_version:
+        group:
           type: string
-          description: Identifier of the recognition model that produced the result.
-        results:
+          description: Food group name (e.g. "Bacon", "Confection").
+        items:
           type: array
-          description: Recognized food groups.
           items:
-            $ref: '#/components/schemas/FoodGroup'
-  responses:
-    Error:
-      description: Error envelope returned by the API.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+            $ref: '#/components/schemas/FoodItem'
   securitySchemes:
     user_key:
       type: apiKey
