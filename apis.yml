@@ -53,7 +53,7 @@ tags:
 - Digital Health
 - Nutrition
 - Food Recognition
-- Machine-Learning
+- Machine Learning
 - Artificial Intelligence
 - Fitness
 - Diabetes
@@ -68,6 +68,7 @@ tags_raw:
 - Fitness
 - Diabetes
 - API
+- Machine-Learning
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
