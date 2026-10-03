@@ -103,38 +103,7 @@ paths:
         '500':
           $ref: '#/components/responses/Error'
 components:
-  responses:
-    Error:
-      description: Error envelope returned by the API.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            errorDetail:
-              type: string
-            code:
-              type: integer
-      example:
-        error:
-          errorDetail: Authorization failure
-          code: 401
-    FoodGroup:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Food group name (e.g. "Bacon", "Confection").
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/FoodItem'
     Nutrition:
       type: object
       description: Core macronutrients on /v1/foodrecognition; expanded to the full profile (vitamins, minerals, fat types) on /v1/foodrecognition/full.
@@ -149,18 +118,6 @@ components:
           type: number
         sodium:
           type: number
-    RecognitionResult:
-      type: object
-      description: 'Hierarchical recognition result: a model version identifier plus an array of recognized food groups, each containing candidate food items.'
-      properties:
-        model_version:
-          type: string
-          description: Identifier of the recognition model that produced the result.
-        results:
-          type: array
-          description: Recognized food groups.
-          items:
-            $ref: '#/components/schemas/FoodGroup'
     FoodItem:
       type: object
       properties:
@@ -179,6 +136,49 @@ components:
             type: object
         nutrition:
           $ref: '#/components/schemas/Nutrition'
+    FoodGroup:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Food group name (e.g. "Bacon", "Confection").
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FoodItem'
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            errorDetail:
+              type: string
+            code:
+              type: integer
+      example:
+        error:
+          errorDetail: Authorization failure
+          code: 401
+    RecognitionResult:
+      type: object
+      description: 'Hierarchical recognition result: a model version identifier plus an array of recognized food groups, each containing candidate food items.'
+      properties:
+        model_version:
+          type: string
+          description: Identifier of the recognition model that produced the result.
+        results:
+          type: array
+          description: Recognized food groups.
+          items:
+            $ref: '#/components/schemas/FoodGroup'
+  responses:
+    Error:
+      description: Error envelope returned by the API.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     user_key:
       type: apiKey
