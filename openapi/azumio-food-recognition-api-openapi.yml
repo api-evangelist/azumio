@@ -104,20 +104,28 @@ paths:
           $ref: '#/components/responses/Error'
 components:
   schemas:
-    Nutrition:
+    RecognitionResult:
       type: object
-      description: Core macronutrients on /v1/foodrecognition; expanded to the full profile (vitamins, minerals, fat types) on /v1/foodrecognition/full.
+      description: 'Hierarchical recognition result: a model version identifier plus an array of recognized food groups, each containing candidate food items.'
       properties:
-        calories:
-          type: number
-        totalFat:
-          type: number
-        totalCarbs:
-          type: number
-        protein:
-          type: number
-        sodium:
-          type: number
+        model_version:
+          type: string
+          description: Identifier of the recognition model that produced the result.
+        results:
+          type: array
+          description: Recognized food groups.
+          items:
+            $ref: '#/components/schemas/FoodGroup'
+    FoodGroup:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Food group name (e.g. "Bacon", "Confection").
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FoodItem'
     FoodItem:
       type: object
       properties:
@@ -136,16 +144,20 @@ components:
             type: object
         nutrition:
           $ref: '#/components/schemas/Nutrition'
-    FoodGroup:
+    Nutrition:
       type: object
+      description: Core macronutrients on /v1/foodrecognition; expanded to the full profile (vitamins, minerals, fat types) on /v1/foodrecognition/full.
       properties:
-        group:
-          type: string
-          description: Food group name (e.g. "Bacon", "Confection").
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/FoodItem'
+        calories:
+          type: number
+        totalFat:
+          type: number
+        totalCarbs:
+          type: number
+        protein:
+          type: number
+        sodium:
+          type: number
     Error:
       type: object
       properties:
@@ -160,18 +172,6 @@ components:
         error:
           errorDetail: Authorization failure
           code: 401
-    RecognitionResult:
-      type: object
-      description: 'Hierarchical recognition result: a model version identifier plus an array of recognized food groups, each containing candidate food items.'
-      properties:
-        model_version:
-          type: string
-          description: Identifier of the recognition model that produced the result.
-        results:
-          type: array
-          description: Recognized food groups.
-          items:
-            $ref: '#/components/schemas/FoodGroup'
   responses:
     Error:
       description: Error envelope returned by the API.
