@@ -1,21 +1,19 @@
 {
   "provider": "azumio",
   "sources": [
-    "_original/azumio-food-recognition-openapi.yml"
+    "_original/azumio-openapi.json"
   ],
   "outputs": [
-    "azumio-food-recognition-api-openapi.yml"
+    "azumio-food-recognition-api-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "azumio-food-recognition-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "azumio-food-recognition-openapi.yml: declared missing tag: Food Recognition",
-    "apis.yml register: already-registered"
+    "azumio-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azumio-openapi.json: declared missing tag: Food Recognition API",
+    "apis.yml register: written (+1 apis, 1 total)"
   ],
-  "skipped": [
-    "azumio-food-recognition-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }

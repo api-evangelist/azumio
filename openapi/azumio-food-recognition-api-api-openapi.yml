@@ -1,0 +1,116 @@
+openapi: 3.2.0
+info:
+  description: Food Recognition API
+  version: 1.0.0
+  title: Example Food Recognition POST Food Recognition API
+  termsOfService: https://dev.caloriemama.ai/terms_of_use
+  contact:
+    email: support+api@azumio.com
+servers:
+- url: https://api-2445582032290.production.gw.apicast.io/v1
+tags:
+- name: Food Recognition API
+paths:
+  /foodrecognition:
+    post:
+      tags:
+      - Food Recognition API
+      summary: upload an image
+      description: ''
+      operationId: uploadFile
+      parameters:
+      - name: user_key
+        description: Your access API Key
+        in: query
+        x-data-threescale-name: user_keys
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Recognized Food Response
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  description: file to upload
+                  format: binary
+              required:
+              - file
+  /foodrecognition/full:
+    post:
+      tags:
+      - Food Recognition API
+      summary: upload an image
+      description: ''
+      operationId: postFoodrecognitionFull
+      parameters:
+      - name: user_key
+        description: Your access API Key
+        in: query
+        x-data-threescale-name: user_keys
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Recognized Food Response With Full Nutritional Data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  description: file to upload
+                  format: binary
+              required:
+              - file
+      x-operation-id-source: normalized
+      x-operation-id-original: uploadFile
+  /foodrecognition/pg:
+    post:
+      tags:
+      - Food Recognition API
+      summary: upload an image
+      description: ''
+      operationId: postFoodrecognitionPg
+      parameters:
+      - name: user_key
+        description: Your access API Key
+        in: query
+        x-data-threescale-name: user_keys
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Recognized Food Response with Full Nutritional Data and Packaged Goods
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  description: file to upload
+                  format: binary
+              required:
+              - file
+      x-operation-id-source: normalized
+      x-operation-id-original: uploadFile
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: user_key
+      in: query
+externalDocs:
+  description: Find out more about Azumio
+  url: http://www.azumio.com

@@ -75,16 +75,16 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 apis:
-- aid: azumio:azumio-food-recognition-api
+- aid: azumio:azumio-food-recognition-api-api
   name: Azumio Food Recognition API
-  description: The Food Recognition API from Azumio — 2 operation(s) for food recognition.
+  description: The Food Recognition API API from Azumio — 3 operation(s) for food recognition api.
   humanURL: https://dev.caloriemama.ai/docs
   baseURL: https://api-2445582032290.production.gw.apicast.io
   tags:
-  - Food Recognition
+  - Food Recognition API
   properties:
   - type: OpenAPI
-    url: openapi/azumio-food-recognition-api-openapi.yml
+    url: openapi/azumio-food-recognition-api-api-openapi.yml
   - type: Documentation
     url: https://dev.caloriemama.ai/docs
 common:
