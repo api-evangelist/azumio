@@ -114,3 +114,9 @@ components:
 externalDocs:
   description: Find out more about Azumio
   url: http://www.azumio.com
+x-provenance:
+  method: harvested
+  publisher: Azumio
+  source: https://dev.caloriemama.ai/swagger/spec/foodrecognition.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
